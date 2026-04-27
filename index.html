@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Act 3 Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; scroll-behavior: smooth; }  
+    body { background: #fff; font-family: "Press Start 2P", cursive; }
+    .page { width: 1920px; margin: 0 auto; position: relative; }
+    .frame { width: 1920px; height: 3487px; position: relative; overflow: hidden; }
+    .bg { position: absolute; left: 0; top: 80px; width: 1920px; height: 3413px; object-fit: cover; }
+    .nav { position: absolute; left: 0; top: 0; width: 1920px; height: 80px; z-index: 5; display: flex; justify-content: flex-end; gap: 36px; align-items: center; padding-right: 40px; background: #d0c6ad; border: 1px solid rgba(0,0,0,.25); }
+    .nav a { color: #0e0e13; text-decoration: none; font-size: 15px; }
+    .nav .active { font-size: 24px; text-decoration: underline; color: #000; }
+    .book { position: absolute; left: 207px; top: 80px; width: 1506px; height: 852px; border-radius: 8px; border: 2px solid rgba(105,50,37,.7); background: linear-gradient(180deg, #93623d 0%, #fe9c48 50%, #000 100%); }
+    .name { position: absolute; left: 112px; top: 155px; width: 514px; margin: 0; color: #5f241c; font-size: 50px; line-height: 75px; text-align: center; }
+    .profile { position: absolute; left: 883px; top: 140px; width: 450px; height: 450px; border-radius: 999px; object-fit: cover; }
+    .role { position: absolute; left: 879px; top: 615px; width: 464px; margin: 0; color: #693225; font-size: 20px; line-height: 1.5; text-align: center; }
+    .bio { position: absolute; left: 121px; top: 359px; width: 505px; margin: 0; color: #693225; font-size: 20px; line-height: 1.5; letter-spacing: .2em; }
+    .title { position: absolute; width: 457px; height: 160px; background: url("./assets/panel-bg.png") center/cover; color: #693225; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .about-title { left: 732px; top: 1196px; }
+    .projects-title { left: 732px; top: 2098px; }
+    .about-buttons { position: absolute; left: 211px; top: 1458px; display: flex; gap: 167px; }
+    .about-btn { width: 386px; height: 294px; background: url("./assets/about-btn-bg.png") center/cover; color: #693225; text-decoration: none; 
+         display: flex; align-items: center; justify-content: center; text-align: center; font-size: 24px; }
+    .projects { position: absolute; left: 211px; top: 2299px; display: flex; gap: 24px; }
+    .card {width: 470px; height: 529px; position: relative; background: url("./assets/project-card-bg.png") center/cover; color: #693225; font-size: 20px; line-height: 1.45; padding: 225px 33px 0; box-sizing: border-box; }
+    .card.first { background: url("./assets/project-card-bg.png") center/cover; }
+    .projects .card::before { content: "";position: absolute; left: 144px; top: 31px;  width: 183px; height: 183px; border-radius: 999px; background-size: cover; background-position: center; }
+    .projects .card:nth-child(1)::before { background-image: url("./assets/project1-bg.png"); background-size: 265%; background-position: center; }
+    .projects .card:nth-child(2)::before { background-image: url("./assets/project2-avatar-56586a.png"); }
+    .projects .card:nth-child(3)::before { background-image: url("./assets/project3-avatar-5d1b35.png"); }
+    .avatar { position: absolute; left: 144px; top: 31px; width: 183px; height: 183px; border-radius: 999px; object-fit: cover; }
+    .more-projects { position: absolute; left: 1425px; top: 2940px; width: 284px; height: 95px; background: url("./assets/button-bg.png") center/cover;
+        color: #ece6cc; text-decoration: none; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+    .contact { position: absolute;  left: 355px; top: 3080px; width: 1209px; height: 334px; background: url("./assets/section-title-bg.png") no-repeat; background-size: 100% 100%;
+        display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .contact h2 { margin: 0; padding-bottom: 15px; font-size: 24px; }
+    .contact-row { display: flex; justify-content: center; align-items: center; gap: 14px;  font-size: 24px;  text-decoration: underline; margin-bottom: 8px; }
+    .contact-row a { color: #fff; }
+    .contact-row img { width: 32px; height: 32px; }
+    .copyright { position: absolute; left: 719px; top: 3444px; width: 481px; color: #e5e5e5; text-align: center; font: 400 14px/24px "Roboto", sans-serif; }
+    .skills .band { position: absolute; left: 243px; top: 402px; width: 1433px; height: 340px; background: url("./assets/skills-title-bg.png") center/cover; color: #693225; font-size: 40px; 
+        display: flex; align-items: center; justify-content: center; text-align: center; }
+    .skills .strip { position: absolute; left: 243px; width: 1435px; height: 653px; background: url("./assets/skills-bg-strip-72de88.png") center/cover; }
+    .skills .s1 { top: 864px; } .skills .s2 { top: 1517px; } .skills .s3 { top: 2170px; }
+    .skill-card { position: absolute; left: 364px; width: 1194px; height: 442px; color: #693225; }
+    .k1 { top: 955px; } .k2 { top: 1397px; } .k3 { top: 1825px; } .k4 { top: 2267px; }
+    .skill-top {  position: absolute; left: 50%; transform: translateX(-50%); top: 30px; width: 484px; height: 161px;  background: url("./assets/skills-card-top.png") center/cover; z-index: 2; }
+    .skill-head { position: absolute; left: 50%; transform: translateX(-50%); top: 30px; width: 484px; height: 161px; padding-top: 5px; 
+        box-sizing: border-box; display: flex; align-items: center; justify-content: center; margin: 0; color: #fff; font-size: 24px; text-align: center;  z-index: 3; line-height: 1; }
+    .skill-desc { position: absolute; 
+        left: 50%; transform: translateX(-50%); top: 210px; width: 1000px; margin: 0; color: #693225;  font-size: 22px; line-height: 1.5; text-align: center; }
+
+    .nav-up { position: absolute; right: 46px; top: 402px; width: 95px; height: 92px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+    .nav-up img { width: 95px; height: 92px; display: block; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section id="home" class="frame">
+      <img class="bg" src="./assets/bg-main.png" alt="">
+      <nav class="nav">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <article class="book">
+        <h1 class="name">JEAN MIKE TOMARONG</h1>
+        <img class="profile" src="./assets/profile.png" alt="Profile photo">
+        <p class="role">Front-end &amp; MEAN Stack developer</p>
+        <p class="bio">See no Demo sonnan ja dame Mou sonnan ja hora Kokoro wa shinka suru yo Motto, motto Kotoba ni sureba kiechau kankei nara Kotoba wo keseba ii yatte Omotteta osoreteta Dakedo are Nanka chigau kamo Senri no michi mo ippo kara</p>
+      </article>
+      <div id="about" class="title about-title">ABOUT</div>
+      <div class="about-buttons">
+        <a class="about-btn" href="#skills">Skills and Talent</a>
+        <a class="about-btn" href="#">Experiences</a>
+        <a class="about-btn" href="#">Testimonials</a>
+      </div>
+      <div id="projects" class="title projects-title">PROJECTS</div>
+      <section class="projects">
+        <div class="card first">Jibun wo sekai saemo kaete shimae sou na Shunkan wa itsumo sugu soba ni.</div>
+        <div class="card">Kimi da yo kimi nanda yo oshiete kureta Kurayami mo hikaru nara hoshizora ni naru.</div>
+        <div class="card">Oboetenai koto mo takusan atta kedo Kitto zutto kawaranai mono ga aru koto o.</div>
+      </section>
+      <a class="more-projects" href="#projects">View More Projects</a>
+      <section id="contact" class="contact">
+        <h2>CONTACT ME!</h2>
+        <div class="contact-row"><img src="./assets/linkedin-icon.svg" alt=""><a href="https://www.linkedin.com/in/peteroravec" target="_blank" rel="noreferrer">linkedin.com/in/tomarongjmj</a></div>
+        <div class="contact-row"><img src="./assets/email-icon.svg" alt=""><a href="mailto:tomarong.jeanmikej@gmail.com">tomarong.jeanmikej@gmail.com</a></div>
+      </section>
+      <div class="copyright">© 2026 Jean Mike Tomarong | Portfolio</div>
+    </section>
+    <section id="skills" class="frame skills">
+      <img class="bg" src="./assets/bg-main.png" alt="">
+      <div class="band">Skills and Talents</div>
+      <button class="nav-up" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"><img src="./assets/nav-up.png" alt="Up"></button>
+      <div class="strip s1"></div><div class="strip s2"></div><div class="strip s3"></div>
+      <div class="skill-card k1"><div class="skill-top"></div><div class="skill-head">PROGRAMMING</div><div class="skill-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div></div>
+      <div class="skill-card k2"><div class="skill-top"></div><div class="skill-head">NETWORKING</div><div class="skill-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div></div>
+      <div class="skill-card k3"><div class="skill-top"></div><div class="skill-head">DATA SKILLS</div><div class="skill-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div></div>
+      <div class="skill-card k4"><div class="skill-top"></div><div class="skill-head">TALENTS</div><div class="skill-desc">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div>
+      <div class="copyright">© 2026 Jean Mike Tomarong | Portfolio</div>
+    </section>
+  </main>
+</body>
+</html>
